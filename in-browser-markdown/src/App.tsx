@@ -1,10 +1,12 @@
-import NavBar from './components/NavBar'
+import Markdown from './components/Markdown'
+import NavBar from './components/nav/NavBar'
 
 function App() {
 
   return (
     <>
       <NavBar />
+      <Markdown />
     </>
   )
 }

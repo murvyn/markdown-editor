@@ -1,12 +1,24 @@
 import styled from "styled-components";
 
-const design: any = {
+const design = {
   bodyMed: {
-    "font-weight": "lighter",
+    "font-weight": 300,
     "font-size": "13px",
   },
   headingMed: {
     "font-size": "15px",
+  },
+  markdown: {
+    "font-family": "Roboto Mono",
+    "font-size": "14px",
+    "color": "#35393F",
+    "line-height": " 24px",
+  },
+  headingSmall: {
+    "font-size": "14px",
+    "font-weight": 500,
+    "color": "#7C8187",
+    "letter-spacing": "2px",
   },
 };
 
@@ -62,13 +74,15 @@ export const Line = styled.div`
 `;
 export const DocumentIcon = styled.div`
   height: 16px;
+  overflow: hidden;
 `;
 
-export const Text = styled.p<{ color?: string; font?: string }>`
+export const Text = styled.p<{ color?: string; font?: keyof typeof design }>`
   color: ${(props) => {
     if (props.color === "primary") return "#7C8187";
     else return "#fff";
   }};
+  line-height: 24px;
   ${(props) => {
     const designObj = props.font ? design[props.font] : {};
     const styles = Object.entries(designObj)
@@ -78,7 +92,7 @@ export const Text = styled.p<{ color?: string; font?: string }>`
   }};
 `;
 
-export const Button = styled.div<{backgroundColor?: string}>`
+export const Button = styled.div<{ backgroundColor?: string }>`
   display: inline-flex;
   height: 3rem;
   min-height: 3rem;
@@ -89,34 +103,34 @@ export const Button = styled.div<{backgroundColor?: string}>`
   align-items: center;
   justify-content: center;
   border-color: transparent;
-  background-color: ${props => {
-    if(props.backgroundColor === 'primary') return '#E46643'
-    return '#35393f'
-    }};
+  background-color: ${(props) => {
+    if (props.backgroundColor === "primary") return "#E46643";
+    return "#35393f";
+  }};
   padding-left: 1rem;
-  padding-right:1rem;
+  padding-right: 1rem;
   text-align: center;
   font-size: 0.875rem;
   line-height: 1rem;
   gap: 0.5rem;
   font-weight: 600;
   text-decoration-line: none;
-  transition-duration: 200ms ;
-  transition-timing-function: cubic-bezier(0,0,0.2);
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2);
   border-radius: 8px;
-  &:hover{
-    background-color: ${props => {
-    if(props.backgroundColor === 'primary') return '#F39765'
-    return '#35393f'
+  &:hover {
+    background-color: ${(props) => {
+      if (props.backgroundColor === "primary") return "#F39765";
+      return "#35393f";
     }};
   }
 `;
 
 export const NavButtonContainer = styled.div`
-display: flex;
-gap: 24px;
-`
+  display: flex;
+  gap: 24px;
+`;
 export const BinIcon = styled.button`
-background: none;
-border: none;
-`
+  background: none;
+  border: none;
+`;

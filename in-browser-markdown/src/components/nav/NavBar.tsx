@@ -1,8 +1,7 @@
-import React from "react";
-import menu from "../assets/icon-menu.svg";
-import documentIcon from "../assets/icon-document.svg";
-import deleteIcon from "../assets/icon-delete.svg";
-import saveIcon from "../assets/icon-save.svg"
+import menu from "../../assets/icon-menu.svg";
+import documentIcon from "../../assets/icon-document.svg";
+import deleteIcon from "../../assets/icon-delete.svg";
+import saveIcon from "../../assets/icon-save.svg"
 import {
   Document,
   DocumentIcon,
