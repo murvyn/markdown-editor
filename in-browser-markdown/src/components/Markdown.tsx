@@ -1,9 +1,9 @@
 import { Text } from "./nav/nav.styles";
-import { Container, HeadingContainer, Indent } from "./main.styles";
+import { Container, HeadingContainer, Indent, MainContainer } from "./main.styles";
 
 const Markdown = () => {
   return (
-    <>
+    <MainContainer>
       <HeadingContainer>
         <Container>
           <Text font="headingSmall">MARKDOWN</Text>
@@ -74,7 +74,7 @@ const Markdown = () => {
           ```
         </Text>
       </Container>
-    </>
+    </MainContainer>
   );
 };
 

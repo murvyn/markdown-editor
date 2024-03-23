@@ -1,14 +1,18 @@
-import Markdown from './components/Markdown'
-import NavBar from './components/nav/NavBar'
+import { Divider } from "./components/main.styles";
+import Markdown from "./components/Markdown";
+import NavBar from "./components/nav/NavBar";
+import Preview from "./components/Preview";
 
 function App() {
-
   return (
     <>
       <NavBar />
-      <Markdown />
+      <Divider>
+        <Markdown />
+        <Preview />
+      </Divider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

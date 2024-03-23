@@ -12,13 +12,61 @@ const design = {
     "font-family": "Roboto Mono",
     "font-size": "14px",
     "color": "#35393F",
-    "line-height": " 24px",
+    "line-height": "24px",
   },
   headingSmall: {
     "font-size": "14px",
     "font-weight": 500,
     "color": "#7C8187",
     "letter-spacing": "2px",
+  },
+  previewH1: {
+    "font-size": "32px",
+    "font-weight": 700,
+    "color": "#35393F",
+    "font-family": "Roboto Slab",
+    "line-height": '32px',
+  },
+  previewH2: {
+    "font-size": "28px",
+    "font-weight": 300,
+    "color": "#35393F",
+    "font-family": "Roboto Slab",
+  },
+  previewH3: {
+    "font-size": "24px",
+    "font-weight": 700,
+    "color": "#35393F",
+    "font-family": "Roboto Slab",
+  },
+  previewH4: {
+    "font-size": "20px",
+    "font-weight": 700,
+    "color": "#35393F",
+    "font-family": "Roboto Slab",
+  },
+  previewH5: {
+    "font-size": "16px",
+    "font-weight": 700,
+    "color": "#35393F",
+    "font-family": "Roboto Slab",
+  },
+  previewH6: {
+    "font-size": "14px",
+    "font-weight": 700,
+    "color": "#E46643",
+    "font-family": "Roboto Slab",
+  },
+  previewPara: {
+    "font-size": "14px",
+    "color": "#7C8187",
+    "font-family": "Roboto Slab",
+  },
+  previewParaBold: {
+    "font-size": "14px",
+    "font-weight": 700,
+    "color": "#35393F",
+    "font-family": "Roboto Slab",
   },
 };
 
@@ -30,6 +78,7 @@ export const Nav = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-right: 1rem;
+
 `;
 
 export const IconContainer = styled.div`
@@ -90,6 +139,7 @@ export const Text = styled.p<{ color?: string; font?: keyof typeof design }>`
       .join(" ");
     return styles;
   }};
+  
 `;
 
 export const Button = styled.div<{ backgroundColor?: string }>`
@@ -134,3 +184,11 @@ export const BinIcon = styled.button`
   background: none;
   border: none;
 `;
+
+export const Pad = styled.div`
+padding: 24px;
+`
+export const PadSides = styled.div`
+padding-left: 24px;
+padding-right: 24px;
+`
