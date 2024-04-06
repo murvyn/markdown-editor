@@ -14,8 +14,7 @@ export const HeadingContainer = styled.div`
 `;
 
 export const Container = styled.div`
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 24px;
 `;
 export const Accordance = styled.div<{ bordered?: boolean }>`
   width: 100%;
@@ -39,29 +38,26 @@ export const Shadow = styled.span`
 `;
 
 export const UnList = styled.li`
-   display: flex;
+  display: flex;
   flex-direction: row;
   gap: 16px;
-  
 `;
 export const OrList = styled.div`
   display: flex;
   flex-direction: row;
   gap: 9px;
-  
 `;
 
 export const Bullet = styled.div`
-background: #E46643;
-width: 3px;
-min-width: 3px;
-height: 3px;
-border-radius: 50%;
-margin-top: 10px;
-display: inline-block;
-`
+  background: #e46643;
+  width: 3px;
+  min-width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  margin-top: 10px;
+  display: inline-block;
+`;
 export const Highlight = styled.span`
-color: #35393F;
-font-family: "Roboto Mono";
-
-`
+  color: #35393f;
+  font-family: "Roboto Mono";
+`;

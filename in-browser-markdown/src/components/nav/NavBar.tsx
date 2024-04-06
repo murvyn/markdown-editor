@@ -1,7 +1,7 @@
 import menu from "../../assets/icon-menu.svg";
 import documentIcon from "../../assets/icon-document.svg";
 import deleteIcon from "../../assets/icon-delete.svg";
-import saveIcon from "../../assets/icon-save.svg"
+import saveIcon from "../../assets/icon-save.svg";
 import {
   Document,
   DocumentIcon,
@@ -15,8 +15,11 @@ import {
   NavButtonContainer,
   BinIcon,
 } from "./nav.styles";
+import { useContext } from "react";
+import { ContentContext } from "../../contexts/contentContext";
 
 const NavBar = () => {
+  const {fileName} = useContext(ContentContext)
   return (
     <Nav>
       <IconContainer>
@@ -26,22 +29,24 @@ const NavBar = () => {
         <Heading>MARKDOWN</Heading>
         <Line />
         <Document>
-          <DocumentIcon >
+          <DocumentIcon>
             <img src={documentIcon} alt="document" />
           </DocumentIcon>
           <div className="">
-            <Text font='bodyMed' color="primary">Document Name</Text>
-            <Text font="headingMed">welcome.md</Text>
+            <Text fontStyle="bodyMed" color="primary">
+              Document Name
+            </Text>
+            <Text fontStyle="headingMed">{fileName}</Text>
           </div>
         </Document>
       </IconContainer>
-      <NavButtonContainer >
+      <NavButtonContainer>
         <BinIcon type="button">
           <img src={deleteIcon} alt="delete" />
         </BinIcon>
-        <Button backgroundColor="primary">
+        <Button backCol="primary">
           <img src={saveIcon} alt="save" />
-          <Text font="headingMed">Save Changes</Text>
+          <Text fontStyle="headingMed">Save Changes</Text>
         </Button>
       </NavButtonContainer>
     </Nav>

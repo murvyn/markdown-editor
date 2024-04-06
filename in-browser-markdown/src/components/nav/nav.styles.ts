@@ -11,61 +11,61 @@ const design = {
   markdown: {
     "font-family": "Roboto Mono",
     "font-size": "14px",
-    "color": "#35393F",
+    color: "#35393F",
     "line-height": "24px",
   },
   headingSmall: {
     "font-size": "14px",
     "font-weight": 500,
-    "color": "#7C8187",
+    color: "#7C8187",
     "letter-spacing": "2px",
   },
   previewH1: {
     "font-size": "32px",
     "font-weight": 700,
-    "color": "#35393F",
+    color: "#35393F",
     "font-family": "Roboto Slab",
-    "line-height": '32px',
+    "line-height": "32px",
   },
   previewH2: {
     "font-size": "28px",
     "font-weight": 300,
-    "color": "#35393F",
+    color: "#35393F",
     "font-family": "Roboto Slab",
   },
   previewH3: {
     "font-size": "24px",
     "font-weight": 700,
-    "color": "#35393F",
+    color: "#35393F",
     "font-family": "Roboto Slab",
   },
   previewH4: {
     "font-size": "20px",
     "font-weight": 700,
-    "color": "#35393F",
+    color: "#35393F",
     "font-family": "Roboto Slab",
   },
   previewH5: {
     "font-size": "16px",
     "font-weight": 700,
-    "color": "#35393F",
+    color: "#35393F",
     "font-family": "Roboto Slab",
   },
   previewH6: {
     "font-size": "14px",
     "font-weight": 700,
-    "color": "#E46643",
+    color: "#E46643",
     "font-family": "Roboto Slab",
   },
   previewPara: {
     "font-size": "14px",
-    "color": "#7C8187",
+    color: "#7C8187",
     "font-family": "Roboto Slab",
   },
   previewParaBold: {
     "font-size": "14px",
     "font-weight": 700,
-    "color": "#35393F",
+    color: "#35393F",
     "font-family": "Roboto Slab",
   },
 };
@@ -78,7 +78,6 @@ export const Nav = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-right: 1rem;
-
 `;
 
 export const IconContainer = styled.div`
@@ -126,23 +125,25 @@ export const DocumentIcon = styled.div`
   overflow: hidden;
 `;
 
-export const Text = styled.p<{ color?: string; font?: keyof typeof design }>`
+export const Text = styled.p<{
+  color?: string;
+  fontStyle?: keyof typeof design;
+}>`
   color: ${(props) => {
     if (props.color === "primary") return "#7C8187";
     else return "#fff";
   }};
   line-height: 24px;
   ${(props) => {
-    const designObj = props.font ? design[props.font] : {};
+    const designObj = props.fontStyle ? design[props.fontStyle] : {};
     const styles = Object.entries(designObj)
       .map(([key, value]) => `${key}: ${value};`)
       .join(" ");
     return styles;
   }};
-  
 `;
 
-export const Button = styled.div<{ backgroundColor?: string }>`
+export const Button = styled.div<{ backCol?: string }>`
   display: inline-flex;
   height: 3rem;
   min-height: 3rem;
@@ -154,7 +155,7 @@ export const Button = styled.div<{ backgroundColor?: string }>`
   justify-content: center;
   border-color: transparent;
   background-color: ${(props) => {
-    if (props.backgroundColor === "primary") return "#E46643";
+    if (props.backCol === "primary") return "#E46643";
     return "#35393f";
   }};
   padding-left: 1rem;
@@ -170,7 +171,7 @@ export const Button = styled.div<{ backgroundColor?: string }>`
   border-radius: 8px;
   &:hover {
     background-color: ${(props) => {
-      if (props.backgroundColor === "primary") return "#F39765";
+      if (props.backCol === "primary") return "#F39765";
       return "#35393f";
     }};
   }
@@ -186,9 +187,9 @@ export const BinIcon = styled.button`
 `;
 
 export const Pad = styled.div`
-padding: 24px;
-`
+  padding: 24px;
+`;
 export const PadSides = styled.div`
-padding-left: 24px;
-padding-right: 24px;
-`
+  padding-left: 24px;
+  padding-right: 24px;
+`;
