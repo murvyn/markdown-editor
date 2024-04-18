@@ -4,9 +4,11 @@ const design = {
   bodyMed: {
     "font-weight": 300,
     "font-size": "13px",
+    "font-family": "Roboto",
   },
   headingMed: {
     "font-size": "15px",
+    "font-family": "Roboto",
   },
   markdown: {
     "font-family": "Roboto Mono",
@@ -19,6 +21,7 @@ const design = {
     "font-weight": 500,
     color: "#7C8187",
     "letter-spacing": "2px",
+    "font-family": "Roboto",
   },
   previewH1: {
     "font-size": "32px",
@@ -71,13 +74,16 @@ const design = {
 };
 
 export const Nav = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 72px;
   background: #1d1f22;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-right: 1rem;
+  justify-self: center;
+  overflow-x: hidden;
+  /* padding-right: 24px; */
 `;
 
 export const IconContainer = styled.div`
@@ -85,10 +91,15 @@ export const IconContainer = styled.div`
   gap: 27px;
 `;
 
-export const Document = styled.div`
+export const Document = styled.div<{mb?: string}>`
   display: flex;
   align-items: center;
   gap: 16px;
+  ${props => {
+    if (props.mb) {
+      return `margin-bottom: ${props.mb};`;
+    }
+  }}
 `;
 
 export const Menu = styled.div`
@@ -143,10 +154,12 @@ export const Text = styled.p<{
   }};
 `;
 
-export const Button = styled.div<{ backCol?: string }>`
+export const Button = styled.div<{ backCol?: string; full?: boolean }>`
   display: inline-flex;
-  height: 3rem;
-  min-height: 3rem;
+  width: ${(props) => {
+    return props.full && "100%";
+  }};
+  height: 40px;
   flex-shrink: 0;
   cursor: pointer;
   user-select: 0;
@@ -158,17 +171,18 @@ export const Button = styled.div<{ backCol?: string }>`
     if (props.backCol === "primary") return "#E46643";
     return "#35393f";
   }};
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   text-align: center;
   font-size: 0.875rem;
   line-height: 1rem;
-  gap: 0.5rem;
-  font-weight: 600;
+  gap: 8px;
   text-decoration-line: none;
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0, 0, 0.2);
-  border-radius: 8px;
+  border-radius: 4px;
   &:hover {
     background-color: ${(props) => {
       if (props.backCol === "primary") return "#F39765";
@@ -179,11 +193,13 @@ export const Button = styled.div<{ backCol?: string }>`
 
 export const NavButtonContainer = styled.div`
   display: flex;
+  width: auto;
   gap: 24px;
 `;
 export const BinIcon = styled.button`
   background: none;
   border: none;
+  cursor: pointer;
 `;
 
 export const Pad = styled.div`

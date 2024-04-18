@@ -8,6 +8,10 @@ interface ContentContextProps {
   setHtml: React.Dispatch<React.SetStateAction<string>>;
   fileName: string;
   setFileName: React.Dispatch<React.SetStateAction<string>>;
+  setShowSideBar: React.Dispatch<React.SetStateAction<boolean>>;
+  showSideBar: boolean
+  hidePreview: boolean
+  setHidePreview: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export const ContentContext = createContext<ContentContextProps>({
@@ -17,12 +21,18 @@ export const ContentContext = createContext<ContentContextProps>({
   setHtml: () => null,
   setFileName: () => null,
   fileName: "",
+  setShowSideBar: () => null,
+  showSideBar: false,
+  hidePreview: false,
+  setHidePreview: () => null
 });
 
 export const ContentProvider = ({ children }: { children: ReactNode }) => {
   const [content, setContent] = useState<string>("");
   const [html, setHtml] = useState("");
   const [fileName, setFileName] = useState('')
+  const [showSideBar, setShowSideBar] = useState(false);
+  const [hidePreview, setHidePreview] = useState(false);
 
   const getFileName = (filePath: string) => {
     return filePath.split("/").pop();
@@ -44,6 +54,10 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
     setHtml,
     fileName,
     setFileName,
+    setShowSideBar,
+    showSideBar,
+    hidePreview,
+    setHidePreview
   };
 
   return (

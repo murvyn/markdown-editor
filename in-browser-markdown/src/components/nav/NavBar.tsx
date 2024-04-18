@@ -2,6 +2,7 @@ import menu from "../../assets/icon-menu.svg";
 import documentIcon from "../../assets/icon-document.svg";
 import deleteIcon from "../../assets/icon-delete.svg";
 import saveIcon from "../../assets/icon-save.svg";
+import closeIcon from "../../assets/icon-close.svg";
 import {
   Document,
   DocumentIcon,
@@ -19,13 +20,24 @@ import { useContext } from "react";
 import { ContentContext } from "../../contexts/contentContext";
 
 const NavBar = () => {
-  const {fileName} = useContext(ContentContext)
+  const { fileName } = useContext(ContentContext);
+  const {showSideBar, setShowSideBar} = useContext(ContentContext);
+  const toggle = () => {
+    setShowSideBar(!showSideBar);
+  };
   return (
+    <>
     <Nav>
       <IconContainer>
-        <Menu>
-          <img src={menu} alt="menu" />
-        </Menu>
+        {showSideBar ? (
+          <Menu onClick={toggle}>
+            <img src={closeIcon} alt="menu" />
+          </Menu>
+        ) : (
+          <Menu onClick={toggle}>
+            <img src={menu} alt="menu" />
+          </Menu>
+        )}
         <Heading>MARKDOWN</Heading>
         <Line />
         <Document>
@@ -50,6 +62,7 @@ const NavBar = () => {
         </Button>
       </NavButtonContainer>
     </Nav>
+    </>
   );
 };
 

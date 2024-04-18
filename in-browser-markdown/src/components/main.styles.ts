@@ -13,8 +13,9 @@ export const HeadingContainer = styled.div`
   align-items: center;
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<{full?: boolean}>`
   padding: 24px;
+  ${(props) => props.full && "width: 100%;"}
 `;
 export const Accordance = styled.div<{ bordered?: boolean }>`
   width: 100%;
@@ -61,3 +62,25 @@ export const Highlight = styled.span`
   color: #35393f;
   font-family: "Roboto Mono";
 `;
+
+export const Flex = styled.div`
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+`;
+
+export const SideBarBox = styled.div`
+  min-width: 250px;
+  min-height: 100%;
+  background: #1d1f22;
+`;
+
+export const JustifyBetween = styled.div`
+display: flex;
+justify-content: space-between;
+justify-items: center;
+`
+
+export const Pointer = styled.div`
+cursor: pointer;
+`
