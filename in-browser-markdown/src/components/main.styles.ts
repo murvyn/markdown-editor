@@ -31,7 +31,7 @@ export const Divider = styled.div`
 `;
 
 export const MainContainer = styled.div`
-  width: 50%;
+  width: 100%;
   border-left: #e4e4e4 1px solid;
 `;
 export const Shadow = styled.span`
@@ -83,4 +83,13 @@ justify-items: center;
 
 export const Pointer = styled.div`
 cursor: pointer;
+`
+export const HidePreviewContainer = styled.div`
+  width: 672px;
+  padding-top: 24px;
+`
+export const HidePreview = styled.div`
+width: 100%;
+display: flex;
+justify-content: center;
 `

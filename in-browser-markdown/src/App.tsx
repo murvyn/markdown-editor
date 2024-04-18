@@ -7,17 +7,17 @@ import { ContentContext } from "./contexts/contentContext";
 import SideBar from "./components/sidebar/SideBar";
 
 function App() {
-  const { showSideBar } = useContext(ContentContext);
+  const { showSideBar, hidePreview } = useContext(ContentContext);
   return (
     <>
       <Flex>
         {showSideBar && <SideBar />}
         <div className="">
-        <NavBar />
-        <Divider>
-          <Markdown />
-          <Preview />
-        </Divider>
+          <NavBar />
+          <Divider>
+            {!hidePreview && <Markdown />}
+            <Preview />
+          </Divider>
         </div>
       </Flex>
     </>
