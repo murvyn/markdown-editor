@@ -25,3 +25,44 @@ body{
   overflow-y: auto;
   height: 100vh;
 }
+
+.editor {
+  white-space: pre-wrap;
+  resize: none;
+  overflow: auto;
+  height: auto;
+  width: 100%;
+  border: none;
+  font-family: Roboto Mono;
+  font-size: 14px;
+  line-height: 24px;
+  color: #35393F;
+}
+
+textarea.editor:focus {
+  outline: none;
+}
+
+.filename{
+  background: transparent;
+  border: none;
+  height: auto;
+  font-family: Roboto;
+  font-size: 15px;
+  line-height: 24px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+}
+
+.filename:focus{
+  outline: none;
+  border-bottom: 1px solid #fff;
+  caret-color: #E46643;
+  width: 100%;
+}
+
+.hover:hover{
+  color: #E46643;
+  cursor: pointer;
+}

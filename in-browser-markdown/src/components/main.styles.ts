@@ -80,13 +80,13 @@ export const SideBarBox = styled.div`
   display: flex;
 `;
 
-export const JustifyBetween = styled.div<{direction?: string, width?: string}>`
+export const JustifyBetween = styled.div<{direction?: string, height?: string}>`
 display: flex;
 justify-content: space-between;
 justify-items: center;
-width: ${(props) => {
-    if (props.width) {
-      return props.width;
+height: ${(props) => {
+    if (props.height) {
+      return props.height;
     }
   }};
 ${(props) => props.direction && `flex-direction: ${props.direction};`}
@@ -109,4 +109,10 @@ display: flex;
 gap: 12px;
 align-items: center;
 flex-direction: row;
+`
+
+export const SVG = styled.svg`
+&:hover{
+  fill: #e46643;
+}
 `

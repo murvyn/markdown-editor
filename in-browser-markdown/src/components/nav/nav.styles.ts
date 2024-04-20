@@ -114,6 +114,10 @@ export const Menu = styled.div`
   justify-content: center;
   border-color: transparent;
   background-color: #35393f;
+
+  &:hover {
+    background-color: #e46643;
+  }
 `;
 export const Heading = styled.p`
   font-size: 15px;
@@ -141,16 +145,19 @@ export const Text = styled.p<{
   fontStyle?: keyof typeof design;
 }>`
   color: ${(props) => {
-    if (props.color === "primary") return "#7C8187";
-    else return "#fff";
+    if (props.color === "primary") {
+      return "#7C8187";
+    } else {
+      return "#fff";
+    }
   }};
   line-height: 24px;
   ${(props) => {
     const designObj = props.fontStyle ? design[props.fontStyle] : {};
-    const styles = Object.entries(designObj)
+    return Object.entries(designObj)
       .map(([key, value]) => `${key}: ${value};`)
       .join(" ");
-    return styles;
+   
   }};
 `;
 

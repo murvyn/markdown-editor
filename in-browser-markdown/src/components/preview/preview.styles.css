@@ -136,19 +136,3 @@ pre {
     padding: 24px;
 }
 
-.editor {
-    white-space: pre-wrap;
-    resize: none;
-    overflow: auto;
-    height: auto;
-    width: 100%;
-    border: none;
-    font-family: Roboto Mono;
-    font-size: 14px;
-    line-height: 24px;
-    color: #35393F;
-}
-
-textarea.editor:focus {
-    outline: none;
-}

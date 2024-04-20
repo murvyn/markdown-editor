@@ -12,8 +12,8 @@ import {
 import { Text } from "../nav/nav.styles";
 import { ContentContext } from "../../contexts/contentContext";
 import ReactMarkdown from "react-markdown";
-import eyesIcon from "../../assets/icon-show-preview.svg";
-import hideIcon from "../../assets/icon-hide-preview.svg";
+import ShowPreviewIcon from "../../assets/ShowPreviewIcon";
+import HidePreviewIcon from "../../assets/HidePreviewIcon";
 
 const Preview = () => {
   const { content, hidePreview, setHidePreview } = useContext(ContentContext);
@@ -27,9 +27,9 @@ const Preview = () => {
             <Text fontStyle="headingSmall">PREVIEW</Text>
             <Pointer onClick={() => setHidePreview(!hidePreview)} className="">
               {!hidePreview ? (
-                <img src={eyesIcon} alt="eye icon" />
+                <ShowPreviewIcon />
               ) : (
-                <img src={hideIcon} alt="icon" />
+                <HidePreviewIcon />
               )}
             </Pointer>
           </JustifyBetween>

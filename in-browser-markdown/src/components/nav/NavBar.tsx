@@ -1,6 +1,5 @@
 import menu from "../../assets/icon-menu.svg";
 import documentIcon from "../../assets/icon-document.svg";
-import deleteIcon from "../../assets/icon-delete.svg";
 import saveIcon from "../../assets/icon-save.svg";
 import closeIcon from "../../assets/icon-close.svg";
 import {
@@ -16,17 +15,28 @@ import {
   NavButtonContainer,
   BinIcon,
 } from "./nav.styles";
-import { useContext,  useState } from "react";
+import { useContext, useState } from "react";
 import { ContentContext } from "../../contexts/contentContext";
 import DeleteDocument from "../delete/DeleteDocument";
+import DeleteIcon from "../../assets/DeleteIcon";
 
 const NavBar = () => {
-  const { fileName, showSideBar, setShowSideBar } = useContext(ContentContext);
-  const [showDeleteCard, setShowDeleteCard] = useState(false)
+  const { fileName, showSideBar, setShowSideBar, setFileName } =
+    useContext(ContentContext);
+  const [showDeleteCard, setShowDeleteCard] = useState(false);
   const toggle = () => {
     setShowSideBar(!showSideBar);
   };
-  
+  const handleFileNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFileName(event.target.value);
+  };
+
+  const handleFileNameKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      (event.target as HTMLInputElement).blur()
+    }
+  };
+
   return (
     <>
       <Nav>
@@ -50,13 +60,23 @@ const NavBar = () => {
               <Text fontStyle="bodyMed" color="primary">
                 Document Name
               </Text>
-              <Text fontStyle="headingMed">{fileName}</Text>
+              <input
+                className="filename"
+                title="markdown"
+                value={fileName}
+                onChange={handleFileNameChange}
+                onKeyDown={handleFileNameKeyPress}
+              />
             </div>
           </Document>
         </IconContainer>
         <NavButtonContainer>
-          <BinIcon onClick={() => setShowDeleteCard(!showDeleteCard)} type="button">
-            <img src={deleteIcon} alt="delete" />
+          <BinIcon
+    
+            onClick={() => setShowDeleteCard(!showDeleteCard)}
+            type="button"
+          >
+            <DeleteIcon />
           </BinIcon>
           <Button>
             <img src={saveIcon} alt="save" />
@@ -64,7 +84,9 @@ const NavBar = () => {
           </Button>
         </NavButtonContainer>
       </Nav>
-      {showDeleteCard && <DeleteDocument setShowDeleteCard={setShowDeleteCard} />}
+      {showDeleteCard && (
+        <DeleteDocument setShowDeleteCard={setShowDeleteCard} />
+      )}
     </>
   );
 };
