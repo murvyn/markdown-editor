@@ -21,6 +21,8 @@ export const HeadingContainer = styled.div<{mode?: 'light' | 'dark'}>`
 
 export const Container = styled.div<{width?: string}>`
   padding: 24px;
+    overflow-x: hidden;
+    word-break: break-all;
   width: ${(props) => {
     if (props.width) {
       return props.width;
@@ -41,9 +43,10 @@ export const Divider = styled.div`
 `;
 
 export const MainContainer = styled.div<{bordered?: string, mode?: 'light' | 'dark'}>`
-  width: 100%;
+  width: 50vw;
   ${(props) => props.bordered === 'true' && 
   `border-left: ${(props.mode === 'dark') ? '#5A6069':'#E4E4E4'} solid 1px;`}
+
 `;
 export const Shadow = styled.span`
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);

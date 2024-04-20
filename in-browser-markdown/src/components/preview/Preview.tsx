@@ -19,7 +19,7 @@ const Preview = () => {
   const { content, hidePreview, setHidePreview, mode } = useContext(ContentContext);
 
   return (
-    <MainContainer bordered='true' mode={mode}>
+    <MainContainer bordered="true" mode={mode} >
       <div className=""></div>
       <HeadingContainer mode={mode}>
         <Container width="100%">
@@ -36,13 +36,13 @@ const Preview = () => {
         </Container>
       </HeadingContainer>
       {hidePreview ? (
-        <HidePreview>
+        <HidePreview className="over">
           <HidePreviewContainer>
             <ReactMarkdown className={`foo-${mode}`} children={content} />
           </HidePreviewContainer>
         </HidePreview>
       ) : (
-        <Container>
+        <Container className="over">
           <ReactMarkdown className={`foo-${mode}`} children={content} />
         </Container>
       )}

@@ -7,13 +7,13 @@ const Markdown = () => {
   const { content, setContent, mode } = useContext(ContentContext);
 
   return (
-    <MainContainer>
+    <MainContainer >
       <HeadingContainer mode={mode}>
         <Container>
           <Text fontStyle="headingSmall">MARKDOWN</Text>
         </Container>
       </HeadingContainer>
-      <Container>
+      <Container className="over">
         <textarea
           className={`editor-${mode}`}
           title="markdown"

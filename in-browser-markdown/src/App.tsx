@@ -14,8 +14,8 @@ function App() {
         {showSideBar && <SideBar />}
         <div className="">
           <NavBar />
-          <Divider className="over">
-            {!hidePreview && <Markdown />}
+          <Divider >
+            {!hidePreview && <Markdown  />}
             <Preview />
           </Divider>
         </div>

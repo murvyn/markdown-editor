@@ -22,8 +22,9 @@ body{
 }
 
 .over{
-  overflow-y: auto;
-  height: 100vh;
+  overflow-y: auto ;
+  /* min-height: ; */
+  height: 89vh;
 }
 
 .editor-light, .editor-dark {
