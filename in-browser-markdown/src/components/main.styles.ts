@@ -13,9 +13,13 @@ export const HeadingContainer = styled.div`
   align-items: center;
 `;
 
-export const Container = styled.div<{full?: boolean}>`
+export const Container = styled.div<{width?: string}>`
   padding: 24px;
-  ${(props) => props.full && "width: 100%;"}
+  width: ${(props) => {
+    if (props.width) {
+      return props.width;
+    }
+  }};
 `;
 export const Accordance = styled.div<{ bordered?: boolean }>`
   width: 100%;
@@ -76,12 +80,16 @@ export const SideBarBox = styled.div`
   display: flex;
 `;
 
-export const JustifyBetween = styled.div<{direction?: string, full?: boolean}>`
+export const JustifyBetween = styled.div<{direction?: string, width?: string}>`
 display: flex;
 justify-content: space-between;
 justify-items: center;
+width: ${(props) => {
+    if (props.width) {
+      return props.width;
+    }
+  }};
 ${(props) => props.direction && `flex-direction: ${props.direction};`}
-${(props) => props.full && `height: 100%;`}
 `
 
 export const Pointer = styled.div`

@@ -10,14 +10,14 @@ const SideBar = () => {
   const { fileName } = useContext(ContentContext);
   return (
     <SideBarBox>
-      <Container full >
-        <JustifyBetween full direction="column">
+      <Container width="100%" >
+        <JustifyBetween width="100%" direction="column">
           <div className="">
             <MB mb="29px">
               <Text fontStyle="headingSmall">MY DOCUMENT</Text>
             </MB>
             <MB mb="24px">
-              <Button full backCol="primary">
+              <Button width="100%">
                 <Text fontStyle="headingMed">+New Document</Text>
               </Button>
             </MB>

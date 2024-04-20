@@ -91,11 +91,11 @@ export const IconContainer = styled.div`
   gap: 27px;
 `;
 
-export const Document = styled.div<{mb?: string}>`
+export const Document = styled.div<{ mb?: string }>`
   display: flex;
   align-items: center;
   gap: 16px;
-  ${props => {
+  ${(props) => {
     if (props.mb) {
       return `margin-bottom: ${props.mb};`;
     }
@@ -154,10 +154,12 @@ export const Text = styled.p<{
   }};
 `;
 
-export const Button = styled.div<{ backCol?: string; full?: boolean }>`
+export const Button = styled.div<{ width?: string }>`
   display: inline-flex;
   width: ${(props) => {
-    return props.full && "100%";
+    if (props.width) {
+      return props.width;
+    }
   }};
   height: 40px;
   flex-shrink: 0;
@@ -167,10 +169,7 @@ export const Button = styled.div<{ backCol?: string; full?: boolean }>`
   align-items: center;
   justify-content: center;
   border-color: transparent;
-  background-color: ${(props) => {
-    if (props.backCol === "primary") return "#E46643";
-    return "#35393f";
-  }};
+  background-color: #e46643;
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 10px;
@@ -184,10 +183,7 @@ export const Button = styled.div<{ backCol?: string; full?: boolean }>`
   transition-timing-function: cubic-bezier(0, 0, 0.2);
   border-radius: 4px;
   &:hover {
-    background-color: ${(props) => {
-      if (props.backCol === "primary") return "#F39765";
-      return "#35393f";
-    }};
+    background-color: #f39765;
   }
 `;
 

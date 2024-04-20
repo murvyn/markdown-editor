@@ -22,7 +22,7 @@ const Preview = () => {
     <MainContainer>
       <div className=""></div>
       <HeadingContainer>
-        <Container full>
+        <Container width="100%">
           <JustifyBetween>
             <Text fontStyle="headingSmall">PREVIEW</Text>
             <Pointer onClick={() => setHidePreview(!hidePreview)} className="">
