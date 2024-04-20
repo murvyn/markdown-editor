@@ -10,11 +10,11 @@ function App() {
   const { showSideBar, hidePreview } = useContext(ContentContext);
   return (
     <>
-      <Flex>
+      <Flex className="">
         {showSideBar && <SideBar />}
         <div className="">
           <NavBar />
-          <Divider>
+          <Divider className="over">
             {!hidePreview && <Markdown />}
             <Preview />
           </Divider>

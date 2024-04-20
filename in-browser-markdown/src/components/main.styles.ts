@@ -71,14 +71,17 @@ export const Flex = styled.div`
 
 export const SideBarBox = styled.div`
   min-width: 250px;
-  min-height: 100%;
+  max-height: 100vh;
   background: #1d1f22;
+  display: flex;
 `;
 
-export const JustifyBetween = styled.div`
+export const JustifyBetween = styled.div<{direction?: string, full?: boolean}>`
 display: flex;
 justify-content: space-between;
 justify-items: center;
+${(props) => props.direction && `flex-direction: ${props.direction};`}
+${(props) => props.full && `height: 100%;`}
 `
 
 export const Pointer = styled.div`
@@ -92,4 +95,10 @@ export const HidePreview = styled.div`
 width: 100%;
 display: flex;
 justify-content: center;
+`
+export const ToggleBox= styled.div`
+display: flex;
+gap: 12px;
+align-items: center;
+flex-direction: row;
 `

@@ -12,6 +12,8 @@ interface ContentContextProps {
   showSideBar: boolean
   hidePreview: boolean
   setHidePreview: React.Dispatch<React.SetStateAction<boolean>>
+  setMode: React.Dispatch<React.SetStateAction<'light' | 'dark'>>
+  mode: 'light' | 'dark'
 }
 
 export const ContentContext = createContext<ContentContextProps>({
@@ -24,7 +26,9 @@ export const ContentContext = createContext<ContentContextProps>({
   setShowSideBar: () => null,
   showSideBar: false,
   hidePreview: false,
-  setHidePreview: () => null
+  setHidePreview: () => null,
+  mode: 'light',
+  setMode: () => null,
 });
 
 export const ContentProvider = ({ children }: { children: ReactNode }) => {
@@ -33,6 +37,7 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
   const [fileName, setFileName] = useState('')
   const [showSideBar, setShowSideBar] = useState(false);
   const [hidePreview, setHidePreview] = useState(false);
+  const [mode, setMode] = useState<'light' | 'dark'>('light')
 
   const getFileName = (filePath: string) => {
     return filePath.split("/").pop();
@@ -57,7 +62,9 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
     setShowSideBar,
     showSideBar,
     hidePreview,
-    setHidePreview
+    setHidePreview,
+    mode,
+    setMode
   };
 
   return (
