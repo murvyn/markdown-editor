@@ -16,12 +16,12 @@ import ShowPreviewIcon from "../../assets/ShowPreviewIcon";
 import HidePreviewIcon from "../../assets/HidePreviewIcon";
 
 const Preview = () => {
-  const { content, hidePreview, setHidePreview } = useContext(ContentContext);
+  const { content, hidePreview, setHidePreview, mode } = useContext(ContentContext);
 
   return (
-    <MainContainer>
+    <MainContainer bordered='true' mode={mode}>
       <div className=""></div>
-      <HeadingContainer>
+      <HeadingContainer mode={mode}>
         <Container width="100%">
           <JustifyBetween>
             <Text fontStyle="headingSmall">PREVIEW</Text>
@@ -38,12 +38,12 @@ const Preview = () => {
       {hidePreview ? (
         <HidePreview>
           <HidePreviewContainer>
-            <ReactMarkdown className="foo" children={content} />
+            <ReactMarkdown className={`foo-${mode}`} children={content} />
           </HidePreviewContainer>
         </HidePreview>
       ) : (
         <Container>
-          <ReactMarkdown className="foo" children={content} />
+          <ReactMarkdown className={`foo-${mode}`} children={content} />
         </Container>
       )}
     </MainContainer>

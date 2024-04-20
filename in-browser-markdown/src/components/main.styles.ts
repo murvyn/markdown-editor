@@ -6,9 +6,15 @@ export const Indent = styled.span`
   color: #35393f;
   font-family: Roboto Mono;
 `;
-export const HeadingContainer = styled.div`
+export const HeadingContainer = styled.div<{mode?: 'light' | 'dark'}>`
   height: 42px;
-  background: #f5f5f5;
+  background: ${props => {
+    if(props.mode === 'dark'){
+      return '#1D1F22'
+    } else{
+      return '#f5f5f5'
+    }
+  }};
   display: flex;
   align-items: center;
 `;
@@ -21,22 +27,23 @@ export const Container = styled.div<{width?: string}>`
     }
   }};
 `;
-export const Accordance = styled.div<{ bordered?: boolean }>`
-  width: 100%;
-  background: #f5f5f5;
-  border-radius: 3px;
-  overflow: hidden;
-  ${(props) => props.bordered && "border-left: #E46643 solid 4px;"}
-`;
+// export const Accordance = styled.div<{ bordered?: string, mode?: 'light' | 'dark' }>`
+//   width: 100%;
+//   background: #f5f5f5;
+//   border-radius: 3px;
+//   overflow: hidden;
+//   ${(props) => props.bordered === 'true' && `border-left: ${props.mode === 'dark' ? '#5A6069':'#E4E4E4'} solid 4px;`}
+// `;
 
 export const Divider = styled.div`
   display: flex;
   flex-direction: row;
 `;
 
-export const MainContainer = styled.div`
+export const MainContainer = styled.div<{bordered?: string, mode?: 'light' | 'dark'}>`
   width: 100%;
-  border-left: #e4e4e4 1px solid;
+  ${(props) => props.bordered === 'true' && 
+  `border-left: ${(props.mode === 'dark') ? '#5A6069':'#E4E4E4'} solid 1px;`}
 `;
 export const Shadow = styled.span`
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -67,10 +74,13 @@ export const Highlight = styled.span`
   font-family: "Roboto Mono";
 `;
 
-export const Flex = styled.div`
+export const Flex = styled.div<{mode?: 'light' | 'dark'}>`
   display: flex;
   flex-direction: row;
   overflow-x: hidden;
+  ${(props) => props.mode === 'dark' && `
+    background: #151619;
+  `}
 `;
 
 export const SideBarBox = styled.div`

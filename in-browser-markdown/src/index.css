@@ -26,7 +26,7 @@ body{
   height: 100vh;
 }
 
-.editor {
+.editor-light, .editor-dark {
   white-space: pre-wrap;
   resize: none;
   overflow: auto;
@@ -37,9 +37,16 @@ body{
   font-size: 14px;
   line-height: 24px;
   color: #35393F;
+  background: transparent;
 }
 
-textarea.editor:focus {
+.editor-dark{
+  color: #C1C4CB;
+}
+
+
+
+textarea.editor-dark, textarea.editor-light{
   outline: none;
 }
 

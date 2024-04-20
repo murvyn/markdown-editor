@@ -4,18 +4,18 @@ import { useContext } from "react";
 import { ContentContext } from "../contexts/contentContext";
 
 const Markdown = () => {
-  const { content, setContent } = useContext(ContentContext);
+  const { content, setContent, mode } = useContext(ContentContext);
 
   return (
     <MainContainer>
-      <HeadingContainer>
+      <HeadingContainer mode={mode}>
         <Container>
           <Text fontStyle="headingSmall">MARKDOWN</Text>
         </Container>
       </HeadingContainer>
       <Container>
         <textarea
-          className="editor"
+          className={`editor-${mode}`}
           title="markdown"
           rows={60}
           value={content}

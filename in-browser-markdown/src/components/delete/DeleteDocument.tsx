@@ -5,7 +5,7 @@ import { Background, DeleteBox, VStack } from "./delete.styles";
 import { Container } from "../main.styles";
 
 const DeleteDocument = ({setShowDeleteCard}: {setShowDeleteCard: React.Dispatch<React.SetStateAction<boolean>>}) => {
-  const { fileName } = useContext(ContentContext);
+  const { fileName, mode } = useContext(ContentContext);
   const deleteCardRef = useRef<HTMLDivElement>(null)
 
   useEffect(() =>{
@@ -23,13 +23,13 @@ const DeleteDocument = ({setShowDeleteCard}: {setShowDeleteCard: React.Dispatch<
   })
   
   return (
-    <Background >
-      <DeleteBox ref={deleteCardRef} className="">
+    <Background mode={mode} >
+      <DeleteBox mode={mode} ref={deleteCardRef} className="">
         <Container className="">
           <VStack>
 
-          <Text fontStyle="previewH4">Delete this document?</Text>
-          <Text fontStyle="previewPara">
+          <Text mode={mode} fontStyle="previewH4">Delete this document?</Text>
+          <Text mode={mode} fontStyle="previewPara">
             Are you sure you want to delete the ‘<span>{fileName}</span>’
             document and its contents? This action cannot be reversed.
           </Text>

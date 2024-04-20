@@ -7,10 +7,10 @@ import { ContentContext } from "./contexts/contentContext";
 import SideBar from "./components/sidebar/SideBar";
 
 function App() {
-  const { showSideBar, hidePreview } = useContext(ContentContext);
+  const { showSideBar, hidePreview, mode } = useContext(ContentContext);
   return (
     <>
-      <Flex className="">
+      <Flex mode={mode} className="">
         {showSideBar && <SideBar />}
         <div className="">
           <NavBar />

@@ -76,7 +76,7 @@ const design = {
 export const Nav = styled.div`
   width: 100vw;
   height: 72px;
-  background: #1d1f22;
+  background: #2B2D31;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -143,6 +143,7 @@ export const DocumentIcon = styled.div`
 export const Text = styled.p<{
   color?: string;
   fontStyle?: keyof typeof design;
+  mode?: "light" | "dark";
 }>`
   color: ${(props) => {
     if (props.color === "primary") {
@@ -157,8 +158,12 @@ export const Text = styled.p<{
     return Object.entries(designObj)
       .map(([key, value]) => `${key}: ${value};`)
       .join(" ");
-   
   }};
+  color: ${(props) => {
+    if (props.mode === "dark") {
+      return "#fff";
+    }
+  }} !important;
 `;
 
 export const Button = styled.div<{ width?: string }>`

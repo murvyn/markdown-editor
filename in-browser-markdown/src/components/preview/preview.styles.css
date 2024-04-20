@@ -6,7 +6,10 @@ h1 {
     line-height: 32px;
 }
 
-.foo>* {
+.foo-dark>* {
+    margin-bottom: 20px;
+}
+.foo-light>* {
     margin-bottom: 20px;
 }
 
@@ -136,3 +139,31 @@ pre {
     padding: 24px;
 }
 
+
+
+
+.foo-dark h1,
+.foo-dark h2,
+.foo-dark h3,
+.foo-dark h4,
+.foo-dark h5,
+.foo-dark code {
+    color: white;
+}
+
+.foo-dark p,
+.foo-dark ol li,
+.foo-dark ul li {
+    color: #C1C4CB;
+}
+
+
+.foo-dark blockquote,
+.foo-dark pre {
+    background: #2B2D31;
+}
+
+.foo-dark blockquote p,
+.foo-dark blockquote a {
+    color: white;
+}
