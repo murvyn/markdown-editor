@@ -3,8 +3,9 @@ import { ContentContext } from "../../contexts/contentContext";
 import { Container, JustifyBetween, SideBarBox } from "../main.styles";
 import { Button, Document, DocumentIcon, Text } from "../nav/nav.styles";
 import documentIcon from "../../assets/icon-document.svg";
-import { MB } from "./sidebar.styles";
+import { Logo, MB } from "./sidebar.styles";
 import Toggle from "../Toggle";
+import logo from "../../assets/logo.svg";
 
 const SideBar = () => {
   const { fileName } = useContext(ContentContext);
@@ -13,6 +14,11 @@ const SideBar = () => {
       <Container width="100%">
         <JustifyBetween height="100%" direction="column">
           <div className="">
+            <MB mb="17px">
+              <Logo >
+                <img src={logo} alt="logo" />
+              </Logo>
+            </MB>
             <MB mb="29px">
               <Text fontStyle="headingSmall">MY DOCUMENT</Text>
             </MB>

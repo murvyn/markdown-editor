@@ -61,13 +61,23 @@ textarea.editor-dark, textarea.editor-light{
   color: #fff;
   outline: none;
   cursor: pointer;
+  /* width: 2rem; */
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+@media (max-width: 375px) {
+  .filename{
+    max-width: 5rem;
+  }
 }
 
 .filename:focus{
   outline: none;
   border-bottom: 1px solid #fff;
   caret-color: #E46643;
-  width: 100%;
+  width: auto;
 }
 
 .hover:hover{

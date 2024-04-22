@@ -76,7 +76,7 @@ const design = {
 export const Nav = styled.div`
   width: 100vw;
   height: 72px;
-  background: #2B2D31;
+  background: #2b2d31;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,11 +84,20 @@ export const Nav = styled.div`
   justify-self: center;
   overflow-x: hidden;
   /* padding-right: 24px; */
+
+  @media (max-width: 425px) {
+    height: 56px;
+  /* width: 56px; */
+  }
 `;
 
 export const IconContainer = styled.div`
   display: flex;
   gap: 27px;
+
+  @media (max-width: 425px) {
+    gap: 24px;
+  }
 `;
 
 export const Document = styled.div<{ mb?: string }>`
@@ -115,17 +124,22 @@ export const Menu = styled.div`
   border-color: transparent;
   background-color: #35393f;
 
+  @media (max-width: 425px) {
+    height: 56px;
+  width: 56px;
+  }
+
   &:hover {
     background-color: #e46643;
   }
 `;
 export const Heading = styled.p`
-  font-size: 15px;
-  color: #ffffff;
-  letter-spacing: 6px;
   display: flex;
   align-items: center;
-  font-weight: bold;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Line = styled.div`
@@ -134,7 +148,23 @@ export const Line = styled.div`
   background-color: #e46643;
   display: flex;
   align-self: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
+
+export const DisplayMobile = styled.div`
+  @media (max-width: 486px) {
+    display: none;
+  }
+`;
+export const DisplayMobileInverse = styled.div`
+  @media (min-width: 486px) {
+    display: none;
+  }
+`;
+
 export const DocumentIcon = styled.div`
   height: 16px;
   overflow: hidden;

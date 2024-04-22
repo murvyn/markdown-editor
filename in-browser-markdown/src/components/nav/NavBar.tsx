@@ -1,6 +1,7 @@
 import menu from "../../assets/icon-menu.svg";
 import documentIcon from "../../assets/icon-document.svg";
 import saveIcon from "../../assets/icon-save.svg";
+import logo from "../../assets/logo.svg";
 import closeIcon from "../../assets/icon-close.svg";
 import {
   Document,
@@ -14,6 +15,7 @@ import {
   Button,
   NavButtonContainer,
   BinIcon,
+  DisplayMobile,
 } from "./nav.styles";
 import { useContext, useState } from "react";
 import { ContentContext } from "../../contexts/contentContext";
@@ -31,9 +33,11 @@ const NavBar = () => {
     setFileName(event.target.value);
   };
 
-  const handleFileNameKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      (event.target as HTMLInputElement).blur()
+  const handleFileNameKeyPress = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    if (event.key === "Enter") {
+      (event.target as HTMLInputElement).blur();
     }
   };
 
@@ -50,16 +54,20 @@ const NavBar = () => {
               <img src={menu} alt="menu" />
             </Menu>
           )}
-          <Heading>MARKDOWN</Heading>
+          <Heading>
+            <img src={logo} alt="logo" />
+          </Heading>
           <Line />
           <Document>
             <DocumentIcon>
               <img src={documentIcon} alt="document" />
             </DocumentIcon>
             <div className="">
-              <Text fontStyle="bodyMed" color="primary">
-                Document Name
-              </Text>
+              <DisplayMobile>
+                <Text fontStyle="bodyMed" color="primary">
+                  Document Name
+                </Text>
+              </DisplayMobile>
               <input
                 className="filename"
                 title="markdown"
@@ -72,7 +80,6 @@ const NavBar = () => {
         </IconContainer>
         <NavButtonContainer>
           <BinIcon
-    
             onClick={() => setShowDeleteCard(!showDeleteCard)}
             type="button"
           >
@@ -80,7 +87,9 @@ const NavBar = () => {
           </BinIcon>
           <Button>
             <img src={saveIcon} alt="save" />
-            <Text fontStyle="headingMed">Save Changes</Text>
+            <DisplayMobile>
+              <Text fontStyle="headingMed">Save Changes</Text>
+            </DisplayMobile>
           </Button>
         </NavButtonContainer>
       </Nav>

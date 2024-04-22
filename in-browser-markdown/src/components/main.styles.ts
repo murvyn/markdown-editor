@@ -6,28 +6,32 @@ export const Indent = styled.span`
   color: #35393f;
   font-family: Roboto Mono;
 `;
-export const HeadingContainer = styled.div<{mode?: 'light' | 'dark'}>`
+export const HeadingContainer = styled.div<{ mode?: "light" | "dark" }>`
   height: 42px;
-  background: ${props => {
-    if(props.mode === 'dark'){
-      return '#1D1F22'
-    } else{
-      return '#f5f5f5'
+  background: ${(props) => {
+    if (props.mode === "dark") {
+      return "#1D1F22";
+    } else {
+      return "#f5f5f5";
     }
   }};
   display: flex;
   align-items: center;
+  /* width: 100%; */
 `;
 
-export const Container = styled.div<{width?: string}>`
+export const Container = styled.div<{ width?: string }>`
   padding: 24px;
-    overflow-x: hidden;
-    word-break: break-all;
+  overflow-x: hidden;
   width: ${(props) => {
     if (props.width) {
       return props.width;
     }
   }};
+
+  @media (max-width: 425px) {
+    padding: 20px;
+  }
 `;
 // export const Accordance = styled.div<{ bordered?: string, mode?: 'light' | 'dark' }>`
 //   width: 100%;
@@ -42,12 +46,32 @@ export const Divider = styled.div`
   flex-direction: row;
 `;
 
-export const MainContainer = styled.div<{bordered?: string, mode?: 'light' | 'dark'}>`
-  width: 50vw;
-  ${(props) => props.bordered === 'true' && 
-  `border-left: ${(props.mode === 'dark') ? '#5A6069':'#E4E4E4'} solid 1px;`}
+export const MainContainer = styled.div<{
+  bordered?: string;
+  mode?: "light" | "dark";
+  hidePreview?: boolean;
+}>`
+  width: ${(props) => (props.hidePreview ? "100vw" : "50vw")};
+  ${(props) =>
+    props.bordered === "true" &&
+    `border-left: ${props.mode === "dark" ? "#5A6069" : "#E4E4E4"} solid 1px;`}
 
+@media (max-width: 486px) {
+    width: 100vw;
+  }
 `;
+
+export const PreviewContainer = styled.div<{hidePreview?: boolean;}>`
+  @media (max-width: 486px) {
+    display: ${(props) => !props.hidePreview && "none"};
+  }
+`;
+export const MarkdownContainer = styled.div<{hidePreview?: boolean;}>`
+  @media (max-width: 486px) {
+    display: ${(props) => !props.hidePreview && "none"};
+  }
+`;
+
 export const Shadow = styled.span`
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 `;
@@ -77,11 +101,13 @@ export const Highlight = styled.span`
   font-family: "Roboto Mono";
 `;
 
-export const Flex = styled.div<{mode?: 'light' | 'dark'}>`
+export const Flex = styled.div<{ mode?: "light" | "dark" }>`
   display: flex;
   flex-direction: row;
   overflow-x: hidden;
-  ${(props) => props.mode === 'dark' && `
+  ${(props) =>
+    props.mode === "dark" &&
+    `
     background: #151619;
   `}
 `;
@@ -93,39 +119,53 @@ export const SideBarBox = styled.div`
   display: flex;
 `;
 
-export const JustifyBetween = styled.div<{direction?: string, height?: string}>`
-display: flex;
-justify-content: space-between;
-justify-items: center;
-height: ${(props) => {
+export const JustifyBetween = styled.div<{
+  direction?: string;
+  height?: string;
+  width?: string;
+}>`
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  height: ${(props) => {
     if (props.height) {
       return props.height;
     }
   }};
-${(props) => props.direction && `flex-direction: ${props.direction};`}
-`
+  width: ${(props) => {
+    if (props.width) {
+      return props.width;
+    }
+  }};
+  ${(props) => props.direction && `flex-direction: ${props.direction};`}
+`;
 
 export const Pointer = styled.div`
-cursor: pointer;
-`
+  cursor: pointer;
+`;
 export const HidePreviewContainer = styled.div`
   width: 672px;
-  padding-top: 24px;
-`
+  padding: 24px;
+
+  @media (max-width: 425px) {
+    padding: 20px;
+    width: 100%;
+  }
+`;
 export const HidePreview = styled.div`
-width: 100%;
-display: flex;
-justify-content: center;
-`
-export const ToggleBox= styled.div`
-display: flex;
-gap: 12px;
-align-items: center;
-flex-direction: row;
-`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+export const ToggleBox = styled.div`
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-direction: row;
+`;
 
 export const SVG = styled.svg`
-&:hover{
-  fill: #e46643;
-}
-`
+  &:hover {
+    fill: #e46643;
+  }
+`;

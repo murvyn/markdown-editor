@@ -8,6 +8,7 @@ import {
   Pointer,
   HidePreviewContainer,
   HidePreview,
+  PreviewContainer,
 } from "../main.styles";
 import { Text } from "../nav/nav.styles";
 import { ContentContext } from "../../contexts/contentContext";
@@ -19,7 +20,9 @@ const Preview = () => {
   const { content, hidePreview, setHidePreview, mode } = useContext(ContentContext);
 
   return (
-    <MainContainer bordered="true" mode={mode} >
+    <MainContainer hidePreview={hidePreview} bordered="true" mode={mode} >
+      <PreviewContainer hidePreview={hidePreview}>
+
       <div className=""></div>
       <HeadingContainer mode={mode}>
         <Container width="100%">
@@ -46,6 +49,7 @@ const Preview = () => {
           <ReactMarkdown className={`foo-${mode}`} children={content} />
         </Container>
       )}
+      </PreviewContainer>
     </MainContainer>
   );
 };
