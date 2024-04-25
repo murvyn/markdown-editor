@@ -168,6 +168,8 @@ export const DisplayMobileInverse = styled.div`
 export const DocumentIcon = styled.div`
   height: 16px;
   overflow: hidden;
+  width: 13.71px;
+  flex-shrink: 0;
 `;
 
 export const Text = styled.p<{
@@ -194,6 +196,7 @@ export const Text = styled.p<{
       return "#fff";
     }
   }} !important;
+  /* flex-grow: 1; */
 `;
 
 export const Button = styled.div<{ width?: string }>`

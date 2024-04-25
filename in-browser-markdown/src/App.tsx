@@ -1,26 +1,28 @@
-import { useContext } from "react";
+import React, { Suspense, useContext } from "react";
 import { Divider, Flex } from "./components/main.styles";
-import Markdown from "./components/Markdown";
-import NavBar from "./components/nav/NavBar";
-import Preview from "./components/preview/Preview";
 import { ContentContext } from "./contexts/contentContext";
-import SideBar from "./components/sidebar/SideBar";
+import Loading from "./components/Loading";
+
+import SideBar from"./components/sidebar/SideBar"
+import NavBar from "./components/nav/NavBar"
+const Preview = React.lazy(() => import("./components/preview/Preview"));
+const Markdown = React.lazy(() => import("./components/Markdown"));
 
 function App() {
   const { showSideBar, hidePreview, mode } = useContext(ContentContext);
   return (
-    <>
-      <Flex mode={mode} className="">
-        {showSideBar && <SideBar />}
-        <div className="">
-          <NavBar />
-          <Divider >
-            {!hidePreview && <Markdown  />}
+    <Flex mode={mode} className="">
+      {showSideBar && <SideBar />}
+      <div className="">
+        <NavBar />
+        <Suspense fallback={<Loading />}>
+          <Divider>
+            {!hidePreview && <Markdown />}
             <Preview />
           </Divider>
-        </div>
-      </Flex>
-    </>
+        </Suspense>
+      </div>
+    </Flex>
   );
 }
 

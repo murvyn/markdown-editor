@@ -3,11 +3,14 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { ContentProvider } from "./contexts/contentContext.tsx";
+import { FileManagerProvider } from "./contexts/fIleManagerContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ContentProvider>
-      <App />
-    </ContentProvider>
+    <FileManagerProvider>
+      <ContentProvider>
+        <App />
+      </ContentProvider>
+    </FileManagerProvider>
   </React.StrictMode>
 );

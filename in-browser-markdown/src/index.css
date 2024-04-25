@@ -80,7 +80,15 @@ textarea.editor-dark, textarea.editor-light{
   width: auto;
 }
 
+.hover{
+  width: auto;
+}
+
 .hover:hover{
   color: #E46643;
   cursor: pointer;
+}
+
+#fileInput{
+  display: none;
 }
