@@ -52,7 +52,10 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
   const [showSideBar, setShowSideBar] = useState(false);
   const [hidePreview, setHidePreview] = useState(false);
   const [newDoc, setNewDoc] = useState(false);
-  const [id, setId] = useState("");
+  const [id, setId] = useState(() => {
+    const currentId = localStorage.getItem("id");
+    return (currentId as string) || "";
+  });
   const { files } = useContext(FileManagerContext);
 
   const [mode, setMode] = useState<"light" | "dark">(() => {
@@ -83,6 +86,12 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     if (files) {
+      if (!localStorage.getItem("id")) {
+        const file = files?.find((file) => file.id === localStorage.getItem("id"));
+        setContent(file?.upload?.content as string);
+        setFileName(file?.upload?.name as string);
+        setId(file?.id as string);
+      }
       setContent(files[0]?.upload?.content as string);
       setFileName(files[0]?.upload?.name);
       setId(files[0]?.id);
@@ -97,7 +106,7 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     if (files?.length > 0) {
-      const nextFile = files[files?.length-1];
+      const nextFile = files[files?.length - 1];
       setContent(nextFile?.upload?.content as string);
       setFileName(nextFile?.upload?.name as string);
       setId(nextFile.id);

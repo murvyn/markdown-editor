@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Button, Text } from "../nav/nav.styles";
 import { ContentContext } from "../../contexts/contentContext";
 import { Background, DeleteBox, VStack } from "./delete.styles";
@@ -9,17 +9,14 @@ const DeleteDocument = ({setShowDeleteCard}: {setShowDeleteCard: React.Dispatch<
   const { fileName, mode, id } = useContext(ContentContext);
   const {deleteFile} = useContext(FileManagerContext)
   const deleteCardRef = useRef<HTMLDivElement>(null)
-  const [loading, setLoading] = useState(true)
 
   const handleDelete = async () => {
     try{
-      setLoading(true)
       await deleteFile(id)
       console.log('deleted')
     }catch(err){
       console.log(err)
     }finally{
-      setLoading(false)
       setShowDeleteCard(false)
     }
   }
