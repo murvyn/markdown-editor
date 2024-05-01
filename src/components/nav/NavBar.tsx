@@ -45,6 +45,10 @@ const NavBar = () => {
     setFileName(event.target.value);
   };
 
+  const handleFileNameBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFileName(event.target.value);
+  };
+
   const handleFileNameKeyPress = (
     event: React.KeyboardEvent<HTMLInputElement>
   ) => {
@@ -55,8 +59,9 @@ const NavBar = () => {
   };
 
   const addMdExtension = (text: string): string => {
-    if (text.endsWith(".md")) {
-      return text; 
+    const dotIndex = text.indexOf(".");
+    if (dotIndex !== -1) {
+      return text.substring(0, dotIndex) + ".md";
     } else {
       return text + ".md";
     }
@@ -67,7 +72,7 @@ const NavBar = () => {
       date: new Date(),
       id: newDoc ? uuidv4() : id,
       upload: {
-        name: addMdExtension(fileName),
+        name: addMdExtension(fileName || "Untitled"),
         content,
       },
     };
@@ -116,6 +121,7 @@ const NavBar = () => {
                 value={fileName}
                 onChange={handleFileNameChange}
                 onKeyDown={handleFileNameKeyPress}
+                onBlur={handleFileNameBlur}
               />
             </div>
           </Document>

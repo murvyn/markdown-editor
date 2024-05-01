@@ -25,7 +25,6 @@ const DeleteDocument = ({setShowDeleteCard}: {setShowDeleteCard: React.Dispatch<
     const handler = (e: MouseEvent) => {
       if(deleteCardRef.current && !deleteCardRef.current.contains(e.target as Node)){
         setShowDeleteCard(false)
-        console.log(deleteCardRef.current)
       }
     }
     document.addEventListener('mousedown', handler)
