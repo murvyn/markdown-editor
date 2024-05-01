@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Container, JustifyBetween, SideBarBox } from "../main.styles";
+import { Container, JustifyBetween } from "../main.styles";
 import { Document, DocumentIcon } from "../nav/nav.styles";
 import documentIcon from "../../assets/icon-document.svg";
 import { Logo, MB } from "./sidebar.styles";
@@ -8,6 +8,7 @@ import logo from "../../assets/logo.svg";
 import { FileManagerContext } from "../../contexts/fIleManagerContext";
 import { ContentContext } from "../../contexts/contentContext";
 import {Button, Text} from '../main.styles'
+import { SideBarBox } from "./sidebar.styles";
 
 const SideBar = () => {
   const { files } = useContext(FileManagerContext);

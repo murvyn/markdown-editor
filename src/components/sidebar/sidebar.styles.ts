@@ -37,3 +37,10 @@ export const LabelButton = styled.label`
     background-color: #f39765;
   }
 `;
+
+export const SideBarBox = styled.div`
+  min-width: 250px;
+  height: 100vh;
+  background: #1d1f22;
+  display: flex;
+`;

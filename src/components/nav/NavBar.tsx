@@ -117,6 +117,7 @@ const NavBar = () => {
               <input
                 ref={inputRef}
                 className="filename"
+                placeholder='No document'
                 title="markdown"
                 value={fileName}
                 onChange={handleFileNameChange}

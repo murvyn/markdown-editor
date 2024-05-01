@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import MARKDOWN from "/welcome.md";
+import Data from '../../data.json'
 
 interface Upload {
   name: string;
@@ -39,20 +39,20 @@ export const FileManagerProvider = ({ children }: { children: ReactNode }) => {
       try {
         const storedFiles = localStorage.getItem("files");
         if (!storedFiles) {
-          const res = await fetch(MARKDOWN);
-          const md = await res.text();
-          const welcome = {
-            date: new Date(),
-            id: uuidv4(),
-            upload: {
-              name: "welcome.md",
-              content: md,
-            },
-          };
-          localStorage.setItem("files", JSON.stringify([welcome]));
-          if (isMounted) {
-            setFiles([welcome]);
-          }
+          Data.map(data => {
+            const file = {
+              date: new Date(data.createdAt),
+              id: uuidv4(),
+              upload: {
+                name: data.name,
+                content: data.content,
+              }
+            };
+            localStorage.setItem("files", JSON.stringify([file]));
+            if (isMounted) {
+              setFiles((prevFiles) => [...prevFiles, file]);
+            }
+          })
         } else if (isMounted) {
             setFiles(JSON.parse(storedFiles));
           
@@ -79,19 +79,14 @@ export const FileManagerProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const addOrReplaceFile = (newFile: UploadArray) => {
-    // Check if the file with the same ID already exists
     const existingIndex = files.findIndex(file => file.id === newFile.id);
     if (existingIndex !== -1) {
-      // If the file exists, replace it
       const updatedFiles = [...files];
       updatedFiles[existingIndex] = newFile;
       setFiles(updatedFiles);
-      // Update local storage
       localStorage.setItem("files", JSON.stringify(updatedFiles));
     } else {
-      // If the file doesn't exist, add it
       setFiles(prevFiles => [...prevFiles, newFile]);
-      // Update local storage
       localStorage.setItem("files", JSON.stringify([...files, newFile]));
     }
   };

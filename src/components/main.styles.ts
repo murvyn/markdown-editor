@@ -245,12 +245,7 @@ export const Flex = styled.div<{ mode?: "light" | "dark" }>`
   `}
 `;
 
-export const SideBarBox = styled.div`
-  min-width: 250px;
-  max-height: 100vh;
-  background: #1d1f22;
-  display: flex;
-`;
+
 
 export const JustifyBetween = styled.div<{
   direction?: string;
