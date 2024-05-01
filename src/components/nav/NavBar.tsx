@@ -53,7 +53,6 @@ const NavBar = () => {
       setFileName((event.target as HTMLInputElement).value);
     }
   };
-  console.log(name);
 
   const addMdExtension = (text: string): string => {
     if (text.endsWith(".md")) {
@@ -79,7 +78,6 @@ const NavBar = () => {
 
   useEffect(() => {
     if (newDoc && inputRef.current) {
-      console.log(inputRef.current);
       inputRef.current.focus();
     }
   }, [newDoc]);

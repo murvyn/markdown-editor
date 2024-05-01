@@ -20,8 +20,8 @@ const Preview = () => {
   const { content, hidePreview, setHidePreview, mode } = useContext(ContentContext);
 
   return (
-    <MainContainer hidePreview={hidePreview} bordered="true" mode={mode} >
-      <PreviewContainer hidePreview={hidePreview}>
+    <MainContainer $hidePreview={hidePreview} $bordered="true" mode={mode} >
+      <PreviewContainer $hidePreview={hidePreview}>
 
       <div className=""></div>
       <HeadingContainer mode={mode}>

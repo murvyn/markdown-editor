@@ -19,7 +19,7 @@ const Markdown = () => {
 
   return (
     <MainContainer>
-      <MarkdownContainer hidePreview={!hidePreview}>
+      <MarkdownContainer $hidePreview={!hidePreview}>
         <HeadingContainer mode={mode}>
           <Container width="100%">
             <JustifyBetween>

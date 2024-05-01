@@ -69,7 +69,6 @@ export const FileManagerProvider = ({ children }: { children: ReactNode }) => {
     };
   }, []);
 
-  console.log(files)
 
   const deleteFile = (id: string) => {
     setFiles((prevFiles) => {
@@ -112,7 +111,6 @@ export const FileManagerProvider = ({ children }: { children: ReactNode }) => {
       });
     }
   }, [uploadFiles]);
-  console.log(files);
 
   const value: FIleManagerContextProps = {
     uploadFiles,

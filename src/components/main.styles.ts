@@ -180,13 +180,13 @@ export const Divider = styled.div`
 `;
 
 export const MainContainer = styled.div<{
-  bordered?: string;
+  $bordered?: string;
   mode?: "light" | "dark";
-  hidePreview?: boolean;
+  $hidePreview?: boolean;
 }>`
-  width: ${(props) => (props.hidePreview ? "100vw" : "50vw")};
+  width: ${(props) => (props.$hidePreview ? "100vw" : "50vw")};
   ${(props) =>
-    props.bordered === "true" &&
+    props.$bordered === "true" &&
     `border-left: ${props.mode === "dark" ? "#5A6069" : "#E4E4E4"} solid 1px;`}
 
   @media (max-width: 486px) {
@@ -194,14 +194,14 @@ export const MainContainer = styled.div<{
   }
 `;
 
-export const PreviewContainer = styled.div<{ hidePreview?: boolean }>`
+export const PreviewContainer = styled.div<{ $hidePreview?: boolean }>`
   @media (max-width: 486px) {
-    display: ${(props) => !props.hidePreview && "none"};
+    display: ${(props) => !props.$hidePreview && "none"};
   }
 `;
-export const MarkdownContainer = styled.div<{ hidePreview?: boolean }>`
+export const MarkdownContainer = styled.div<{ $hidePreview?: boolean }>`
   @media (max-width: 486px) {
-    display: ${(props) => !props.hidePreview && "none"};
+    display: ${(props) => !props.$hidePreview && "none"};
   }
 `;
 
