@@ -1,4 +1,4 @@
-import { DisplayMobileInverse, Text } from "./nav/nav.styles";
+import { DisplayMobileInverse } from "./nav/nav.styles";
 import {
   Container,
   HeadingContainer,
@@ -11,6 +11,7 @@ import { useContext } from "react";
 import { ContentContext } from "../contexts/contentContext";
 import ShowPreviewIcon from "../assets/ShowPreviewIcon";
 import HidePreviewIcon from "../assets/HidePreviewIcon";
+import {Text} from './main.styles'
 
 const Markdown = () => {
   const { content, setContent, mode, hidePreview, setHidePreview } =

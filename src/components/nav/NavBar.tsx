@@ -7,13 +7,11 @@ import { v4 as uuidv4 } from "uuid";
 import {
   Document,
   DocumentIcon,
-  Text,
   Heading,
   IconContainer,
   Line,
   Menu,
   Nav,
-  Button,
   NavButtonContainer,
   BinIcon,
   DisplayMobile,
@@ -23,6 +21,7 @@ import { ContentContext } from "../../contexts/contentContext";
 import DeleteDocument from "../delete/DeleteDocument";
 import DeleteIcon from "../../assets/DeleteIcon";
 import { FileManagerContext } from "../../contexts/fIleManagerContext";
+import { Button, Text } from "../main.styles";
 
 const NavBar = () => {
   const {

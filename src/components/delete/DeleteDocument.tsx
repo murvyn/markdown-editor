@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from "react";
-import { Button, Text } from "../nav/nav.styles";
+import { Button, Text } from "../main.styles";
 import { ContentContext } from "../../contexts/contentContext";
 import { Background, DeleteBox, VStack } from "./delete.styles";
 import { Container } from "../main.styles";

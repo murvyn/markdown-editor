@@ -10,7 +10,7 @@ import {
   HidePreview,
   PreviewContainer,
 } from "../main.styles";
-import { Text } from "../nav/nav.styles";
+import { Text } from "../main.styles";
 import { ContentContext } from "../../contexts/contentContext";
 import ReactMarkdown from "react-markdown";
 import ShowPreviewIcon from "../../assets/ShowPreviewIcon";
