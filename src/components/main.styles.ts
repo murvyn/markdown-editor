@@ -184,6 +184,7 @@ export const MainContainer = styled.div<{
   mode?: "light" | "dark";
   $hidePreview?: boolean;
 }>`
+height: 100vh;
   width: ${(props) => (props.$hidePreview ? "100vw" : "50vw")};
   ${(props) =>
     props.$bordered === "true" &&
