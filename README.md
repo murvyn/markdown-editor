@@ -1,6 +1,6 @@
 # Frontend Mentor - In-browser markdown editor solution
 
-This is a solution to the [In-browser markdown editor challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/inbrowser-markdown-editor-r16TrrQX9). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [In-browser markdown editor challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/inbrowser-markdown-editor-r16TrrQX9). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -15,8 +15,6 @@ This is a solution to the [In-browser markdown editor challenge on Frontend Ment
   - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -35,20 +33,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![light mode](./FireShot/FireShot%20Capture%20001%20-%20Markdown%20Editor%20-%20markdown-editor-ebon-nine.vercel.app.png)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![dark mode](./FireShot/FireShot%20Capture%20002%20-%20Markdown%20Editor%20-%20markdown-editor-ebon-nine.vercel.app.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Github](https://github.com/murvyn/markdown-editor.git)
+- Live Site URL: [Vercel](https://markdown-editor-ebon-nine.vercel.app/)
 
 ## My process
 
@@ -63,55 +55,88 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - [Next.js](https://nextjs.org/) - React framework
 - [Styled Components](https://styled-components.com/) - For styles
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
-
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+During the development of this project, I gained valuable insights and learned several key concepts. Here are some of the major learnings:
 
-To see how you can add code snippets, see below:
+1. **React Component Lifecycle**: I deepened my understanding of React's component lifecycle methods and how they influence the behavior of components. For example, I learned how to use `componentDidMount` for initializing state and fetching data from external APIs.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
+```javascript
+class MyComponent extends React.Component {
+  componentDidMount() {
+    // Code to run after the component mounts
+    fetchData();
+  }
+}
 ```
+
+2. **State Management with React Hooks**: I explored React Hooks, such as `useState` and `useEffect`, for managing state and side effects within functional components. This allowed me to simplify my code and make it more readable.
+
+```javascript
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+  // Code to run after every render
+  document.title = `You clicked ${count} times`;
+}, [count]);
+```
+
+3. **Responsive Design with CSS**: I improved my skills in creating responsive layouts using CSS media queries. I learned how to design interfaces that adapt to different screen sizes, providing a better user experience across devices.
+
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+4. **Working with TypeScript**: This project was my first experience using TypeScript with React. I learned how TypeScript enhances code quality by providing static type checking, which helps catch errors early in the development process.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```typescript
+interface Todo {
+  id: number;
+  text: string;
+  completed: boolean;
+}
+```
+
+These are just a few examples of the valuable lessons I learned while building this project. I look forward to applying these newfound skills in future projects and continuing to grow as a developer.
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+While completing this project, I found several areas that I want to continue focusing on in future projects:
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+1. **Refining the use of React Hooks**: Although I utilized useState and useEffect extensively in this project, I want to deepen my understanding and usage of useRef, useMemo, and useCallback. These hooks can optimize performance and improve code readability in certain scenarios.
+
+2. **Exploring Next.js for server-side rendering**: Next.js offers powerful features for building server-side rendered React applications. I intend to explore Next.js further in my future projects to leverage its benefits, such as improved performance and SEO.
+
+3. **Enhancing UI/UX design skills**: While I implemented basic styling using CSS and Styled Components in this project, I aim to enhance my UI/UX design skills. I plan to learn more about design principles, responsive design, and UI frameworks to create more visually appealing and user-friendly interfaces.
+
+By focusing on these areas, I believe I can further improve my skills as a developer and deliver even better projects in the future.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [ChatGPT](https://openai.com/gpt-3) - ChatGPT provided helpful guidance and assistance throughout the development process. Its ability to generate code snippets and answer questions was invaluable.
+  
+- [YouTube](https://www.youtube.com/) - Various YouTube tutorials and channels provided valuable insights and step-by-step guides on React, TypeScript, and CSS styling techniques. They helped me understand complex concepts and improve my coding skills.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Daisy UI](https://daisyui.com/) - Daisy UI provided a collection of utility-first CSS components for building responsive and accessible web interfaces. It streamlined my UI development process and improved the overall design of my project.
+
+- Google - General web searches and documentation on platforms like MDN Web Docs and React's official documentation were instrumental in resolving specific coding issues, understanding new concepts, and finding best practices.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Website - [Marvin Asamoah](https://3-d-portfolio-nine-sage.vercel.app/)
+- Frontend Mentor - [@murvyn](https://www.frontendmentor.io/profile/murvyn)
+- Twitter - [@_murvyn_](https://twitter.com/_murvyn_)
+- Linkedin - [Marvin Asamoah](https://www.linkedin.com/in/marvin-asamoah-8ba47517a/)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+That's great! Here's how you can structure the "Acknowledgments" section to give credit to those who helped you:
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+I would like to extend my gratitude to the following individuals for their assistance and support during the development of this project:
 
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Amalitech NSS 2024/25 - Special thanks to the members of the worker group for their support, troubleshooting assistance, and collaborative efforts.
