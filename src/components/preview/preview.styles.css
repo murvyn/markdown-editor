@@ -129,6 +129,7 @@ code {
     font-family: Roboto Mono;
     line-height: 24px;
     font-size: 14px;
+    white-space: pre-wrap;
 }
 
 pre {
@@ -166,4 +167,9 @@ pre {
 .foo-dark blockquote p,
 .foo-dark blockquote a {
     color: white;
+}
+
+.over{
+    /* background: red; */
+    margin-bottom: 4rem;
 }

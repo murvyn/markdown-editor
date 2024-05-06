@@ -11,7 +11,7 @@ import { useContext } from "react";
 import { ContentContext } from "../contexts/contentContext";
 import ShowPreviewIcon from "../assets/ShowPreviewIcon";
 import HidePreviewIcon from "../assets/HidePreviewIcon";
-import {Text} from './main.styles'
+import { Text } from "./main.styles";
 
 const Markdown = () => {
   const { content, setContent, mode, hidePreview, setHidePreview } =
@@ -36,13 +36,15 @@ const Markdown = () => {
           </Container>
         </HeadingContainer>
         <Container className="over">
-          <textarea
-            className={`editor-${mode}`}
-            title="markdown"
-            rows={60}
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
+          <div className="padding">
+            <textarea
+              className={`editor-${mode}`}
+              title="markdown"
+              rows={60}
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+            />
+          </div>
         </Container>
       </MarkdownContainer>
     </MainContainer>

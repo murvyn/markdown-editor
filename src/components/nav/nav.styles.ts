@@ -84,12 +84,12 @@ export const Line = styled.div`
 `;
 
 export const DisplayMobile = styled.div`
-  @media (max-width: 486px) {
+  @media (max-width: 593px) {
     display: none;
   }
 `;
 export const DisplayMobileInverse = styled.div`
-  @media (min-width: 486px) {
+  @media (min-width: 593px) {
     display: none;
   }
 `;

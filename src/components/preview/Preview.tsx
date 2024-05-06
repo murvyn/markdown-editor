@@ -17,38 +17,45 @@ import ShowPreviewIcon from "../../assets/ShowPreviewIcon";
 import HidePreviewIcon from "../../assets/HidePreviewIcon";
 
 const Preview = () => {
-  const { content, hidePreview, setHidePreview, mode } = useContext(ContentContext);
+  const { content, hidePreview, setHidePreview, mode } =
+    useContext(ContentContext);
 
   return (
-    <MainContainer $hidePreview={hidePreview} $bordered={hidePreview ? "" : 'true'} mode={mode} >
+    <MainContainer
+      $hidePreview={hidePreview}
+      $bordered={hidePreview ? "" : "true"}
+      mode={mode}
+    >
       <PreviewContainer $hidePreview={hidePreview}>
-
-      <div className=""></div>
-      <HeadingContainer mode={mode}>
-        <Container width="100%">
-          <JustifyBetween>
-            <Text fontStyle="headingSmall">PREVIEW</Text>
-            <Pointer onClick={() => setHidePreview(!hidePreview)} className="">
-              {!hidePreview ? (
-                <ShowPreviewIcon />
-              ) : (
-                <HidePreviewIcon />
-              )}
-            </Pointer>
-          </JustifyBetween>
-        </Container>
-      </HeadingContainer>
-      {hidePreview ? (
-        <HidePreview className="over">
-          <HidePreviewContainer>
-            <ReactMarkdown className={`foo-${mode}`} children={content} />
-          </HidePreviewContainer>
-        </HidePreview>
-      ) : (
-        <Container className="over">
-          <ReactMarkdown className={`foo-${mode}`} children={content} />
-        </Container>
-      )}
+        <div className=""></div>
+        <HeadingContainer mode={mode}>
+          <Container width="100%">
+            <JustifyBetween>
+              <Text fontStyle="headingSmall">PREVIEW</Text>
+              <Pointer
+                onClick={() => setHidePreview(!hidePreview)}
+                className=""
+              >
+                {!hidePreview ? <ShowPreviewIcon /> : <HidePreviewIcon />}
+              </Pointer>
+            </JustifyBetween>
+          </Container>
+        </HeadingContainer>
+        {hidePreview ? (
+          <HidePreview className="over">
+            <HidePreviewContainer>
+              <div className="padding">
+                <ReactMarkdown className={`foo-${mode}`} children={content} />
+              </div>
+            </HidePreviewContainer>
+          </HidePreview>
+        ) : (
+          <Container className="over">
+            <div className="padding">
+                <ReactMarkdown className={`foo-${mode}`} children={content} />
+              </div>
+          </Container>
+        )}
       </PreviewContainer>
     </MainContainer>
   );
