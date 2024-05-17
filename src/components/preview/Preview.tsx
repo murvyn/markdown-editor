@@ -9,6 +9,7 @@ import {
   HidePreviewContainer,
   HidePreview,
   PreviewContainer,
+  PreviewBox,
 } from "../main.styles";
 import { Text } from "../main.styles";
 import { ContentContext } from "../../contexts/contentContext";
@@ -44,16 +45,16 @@ const Preview = () => {
         {hidePreview ? (
           <HidePreview className="over">
             <HidePreviewContainer>
-              <div className="padding">
-                <ReactMarkdown className={`foo-${mode}`} children={content} />
-              </div>
+              <PreviewBox $mode={mode} className="padding">
+                <ReactMarkdown children={content} />
+              </PreviewBox>
             </HidePreviewContainer>
           </HidePreview>
         ) : (
           <Container className="over">
-            <div className="padding">
-                <ReactMarkdown className={`foo-${mode}`} children={content} />
-              </div>
+            <PreviewBox $mode={mode} className="padding">
+              <ReactMarkdown children={content} />
+            </PreviewBox>
           </Container>
         )}
       </PreviewContainer>

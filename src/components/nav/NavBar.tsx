@@ -21,7 +21,7 @@ import { ContentContext } from "../../contexts/contentContext";
 import DeleteDocument from "../delete/DeleteDocument";
 import DeleteIcon from "../../assets/DeleteIcon";
 import { FileManagerContext } from "../../contexts/fIleManagerContext";
-import { Button, Text } from "../main.styles";
+import { Button, FileName, Text } from "../main.styles";
 
 const NavBar = () => {
   const {
@@ -114,9 +114,8 @@ const NavBar = () => {
                   Document Name
                 </Text>
               </DisplayMobile>
-              <input
+              <FileName
                 ref={inputRef}
-                className="filename"
                 placeholder='No document'
                 title="markdown"
                 value={fileName}

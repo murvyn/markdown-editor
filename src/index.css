@@ -23,65 +23,12 @@ body{
 
 .over{
   overflow-y: auto ;
-  /* min-height: ; */
-  height: 89vh;
+  margin-bottom: 4rem;
+  height: 100vh;
 }
 
 .padding{
   padding-bottom: 20rem;
-}
-
-.editor-light, .editor-dark {
-  white-space: pre-wrap;
-  resize: none;
-  overflow: auto;
-  height: auto;
-  width: 100%;
-  border: none;
-  font-family: Roboto Mono;
-  font-size: 14px;
-  line-height: 24px;
-  color: #35393F;
-  background: transparent;
-}
-
-.editor-dark{
-  color: #C1C4CB;
-}
-
-
-
-textarea.editor-dark, textarea.editor-light{
-  outline: none;
-}
-
-.filename{
-  background: transparent;
-  border: none;
-  height: auto;
-  font-family: Roboto;
-  font-size: 15px;
-  line-height: 24px;
-  color: #fff;
-  outline: none;
-  cursor: pointer;
-  /* width: 2rem; */
-  white-space: nowrap; 
-  overflow: hidden;
-  text-overflow: ellipsis; 
-}
-
-@media (max-width: 375px) {
-  .filename{
-    max-width: 5rem;
-  }
-}
-
-.filename:focus{
-  outline: none;
-  border-bottom: 1px solid #fff;
-  caret-color: #E46643;
-  width: auto;
 }
 
 .hover{
@@ -93,6 +40,3 @@ textarea.editor-dark, textarea.editor-light{
   cursor: pointer;
 }
 
-#fileInput{
-  display: none;
-}

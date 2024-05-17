@@ -13,7 +13,7 @@ import { SideBarBox } from "./sidebar.styles";
 const SideBar = () => {
   const { files } = useContext(FileManagerContext);
   const {setId, setShowSideBar, setNewDoc, setContent, setFileName} = useContext(ContentContext)
-  const reversedFiles = [...files].reverse();
+  // const reversedFiles = [...files].reverse();
 
   const handleAddDocument = () => {
     setNewDoc(true)
@@ -51,7 +51,7 @@ const SideBar = () => {
                 <Text fontStyle="headingMed">+New Document</Text>
               </Button>
             </MB>
-            {reversedFiles?.map((file, index) => {
+            {files?.map((file, index) => {
               const inputDate = new Date(file.date);
               const formattedDate = formatDate(inputDate);
               return (

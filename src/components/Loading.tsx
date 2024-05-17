@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import styled, { keyframes } from "styled-components";
+import { ContentContext } from "../contexts/contentContext";
 
 const spin = keyframes`
   from {
@@ -9,13 +11,13 @@ const spin = keyframes`
   }
 `;
 
-const Container = styled.div`
+const Container = styled.div<{$mode?: 'light'|'dark'}>`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #151619;
+  background: ${props => props.$mode === 'dark' ? '#151619': '#fff'};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,8 +39,9 @@ const Spinner = styled.div`
 `;
 
 const Loading = () => {
+  const {mode} = useContext(ContentContext)
   return (
-    <Container>
+    <Container $mode={mode}>
       <SpinnerContainer>
         <Spinner />
       </SpinnerContainer>

@@ -1,6 +1,7 @@
 import { DisplayMobileInverse } from "./nav/nav.styles";
 import {
   Container,
+  Editor,
   HeadingContainer,
   JustifyBetween,
   MainContainer,
@@ -37,8 +38,8 @@ const Markdown = () => {
         </HeadingContainer>
         <Container className="over">
           <div className="padding">
-            <textarea
-              className={`editor-${mode}`}
+            <Editor
+              $mode={mode}
               title="markdown"
               rows={60}
               value={content}

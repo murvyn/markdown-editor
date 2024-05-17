@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Data from '../../data.json'
+import Data from "../../data.json";
 
 interface Upload {
   name: string;
@@ -12,7 +12,7 @@ interface FIleManagerContextProps {
   setUploadFiles: React.Dispatch<React.SetStateAction<Upload | null>>;
   files: UploadArray[];
   deleteFile: (id: string) => void;
-  addOrReplaceFile: (newFile: UploadArray) => void
+  addOrReplaceFile: (newFile: UploadArray) => void;
 }
 
 export interface UploadArray {
@@ -26,7 +26,7 @@ export const FileManagerContext = createContext<FIleManagerContextProps>({
   setUploadFiles: () => null,
   files: [],
   deleteFile: () => null,
-  addOrReplaceFile: () => null
+  addOrReplaceFile: () => null,
 });
 
 export const FileManagerProvider = ({ children }: { children: ReactNode }) => {
@@ -39,23 +39,21 @@ export const FileManagerProvider = ({ children }: { children: ReactNode }) => {
       try {
         const storedFiles = localStorage.getItem("files");
         if (!storedFiles) {
-          Data.map(data => {
-            const file = {
+          const newFiles = Data.map((data) => ({
               date: new Date(data.createdAt),
               id: uuidv4(),
               upload: {
                 name: data.name,
                 content: data.content,
-              }
-            };
-            localStorage.setItem("files", JSON.stringify([file]));
+              },
+            }))
+            localStorage.setItem("files", JSON.stringify(newFiles));
             if (isMounted) {
-              setFiles((prevFiles) => [...prevFiles, file]);
-            }
-          })
+              setFiles(newFiles);
+            
+          }
         } else if (isMounted) {
-            setFiles(JSON.parse(storedFiles));
-          
+          setFiles(JSON.parse(storedFiles));
         }
       } catch (error) {
         console.error("Error fetching Markdown:", error);
@@ -69,7 +67,6 @@ export const FileManagerProvider = ({ children }: { children: ReactNode }) => {
     };
   }, []);
 
-
   const deleteFile = (id: string) => {
     setFiles((prevFiles) => {
       const updatedFiles = prevFiles.filter((file) => file.id !== id);
@@ -79,18 +76,17 @@ export const FileManagerProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const addOrReplaceFile = (newFile: UploadArray) => {
-    const existingIndex = files.findIndex(file => file.id === newFile.id);
+    const existingIndex = files.findIndex((file) => file.id === newFile.id);
     if (existingIndex !== -1) {
       const updatedFiles = [...files];
       updatedFiles[existingIndex] = newFile;
       setFiles(updatedFiles);
       localStorage.setItem("files", JSON.stringify(updatedFiles));
     } else {
-      setFiles(prevFiles => [...prevFiles, newFile]);
+      setFiles((prevFiles) => [...prevFiles, newFile]);
       localStorage.setItem("files", JSON.stringify([...files, newFile]));
     }
   };
-
 
   useEffect(() => {
     if (uploadFiles) {

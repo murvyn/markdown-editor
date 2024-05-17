@@ -184,7 +184,7 @@ export const MainContainer = styled.div<{
   mode?: "light" | "dark";
   $hidePreview?: boolean;
 }>`
-/* height: 100vh; */
+  /* height: 100vh; */
   width: ${(props) => (props.$hidePreview ? "100vw" : "50vw")};
   ${(props) =>
     props.$bordered === "true" &&
@@ -248,7 +248,144 @@ export const Flex = styled.div<{ mode?: "light" | "dark" }>`
   `}
 `;
 
+export const PreviewBox = styled.div<{ $mode?: "light" | "dark" }>`
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: ${(props) => (props.$mode === "dark" ? "#fff" : "#5393F")};
+    font-family: "Roboto Slab";
+    line-height: 32px;
+  }
 
+  & > * {
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 14px;
+    color: #7c8187;
+    font-family: "Roboto Slab";
+    line-height: 24px;
+  }
+
+  h2 {
+    font-size: 28px;
+    font-weight: 300;
+    color: ${(props) => (props.$mode === "dark" ? "#fff" : "#35393F")};
+    font-family: "Roboto Slab";
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: ${(props) => (props.$mode === "dark" ? "#fff" : "#35393F")};
+    font-family: "Roboto Slab";
+  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: ${(props) => (props.$mode === "dark" ? "#fff" : "#35393F")};
+    font-family: "Roboto Slab";
+  }
+
+  h5 {
+    font-size: 16px;
+    font-weight: 700;
+    color: ${(props) => (props.$mode === "dark" ? "#fff" : "#35393F")};
+    font-family: "Roboto Slab";
+  }
+
+  h5 {
+    font-size: 14px;
+    font-weight: 700;
+    color: ${(props) => (props.$mode === "dark" ? "#fff" : "#35393F")};
+    font-family: "Roboto Slab";
+  }
+
+  h6 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #e46643;
+    font-family: "Roboto Slab";
+  }
+
+  ol {
+    padding-left: 38px;
+  }
+
+  ol li {
+    font-size: 14px;
+    color: #7c8187;
+    font-family: "Roboto Slab";
+    margin-bottom: 4px;
+    /* margin-left: 38px; */
+  }
+
+  ol li::before {
+    margin-right: 16rem;
+  }
+
+  ul li {
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+  }
+
+  ul li {
+    font-size: 14px;
+    color: #7c8187;
+    font-family: "Roboto Slab";
+    list-style: none;
+    margin-bottom: 4px;
+  }
+
+  ul li::before {
+    content: "•";
+    color: #e46643;
+    font-family: "Roboto Slab";
+    font-size: 14px;
+    margin-right: 16px;
+    margin-left: 24px;
+    display: inline-block;
+    /* width: 2px; */
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  blockquote {
+    width: 100%;
+    background: ${(props) => (props.$mode === "dark" ? "#2B2D31" : " #f5f5f5")};
+    border-radius: 4px;
+    overflow: hidden;
+    border-left: #e46643 solid 4px;
+    padding: 24px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Roboto Slab;
+  }
+
+  blockquote a,
+  blockquote p {
+    color: ${(props) => (props.$mode === "dark" ? "#fff" : "#35393F")};
+  }
+
+  code {
+    color: ${(props) => (props.$mode === "dark" ? "#fff" : "#35393F")};
+    font-family: Roboto Mono;
+    line-height: 24px;
+    font-size: 14px;
+    white-space: pre-wrap;
+  }
+
+  pre {
+    width: 100%;
+    background: ${(props) => (props.$mode === "dark" ? "#2B2D31" : " #f5f5f5")};
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 24px;
+  }
+`;
 
 export const JustifyBetween = styled.div<{
   direction?: string;
@@ -298,5 +435,47 @@ export const ToggleBox = styled.div`
 export const SVG = styled.svg`
   &:hover {
     fill: #e46643;
+  }
+`;
+
+export const Editor = styled.textarea<{ $mode?: "light" | "dark" }>`
+  white-space: pre-wrap;
+  resize: none;
+  overflow: auto;
+  height: auto;
+  width: 100%;
+  border: none;
+  font-family: Roboto Mono;
+  font-size: 14px;
+  line-height: 24px;
+  outline: none;
+  color: ${(props) => (props.$mode === "dark" ? "#C1C4CB" : " #35393f")};
+  background: transparent;
+`;
+
+export const FileName = styled.input`
+  background: transparent;
+  border: none;
+  height: auto;
+  font-family: Roboto;
+  font-size: 15px;
+  line-height: 24px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  /* width: 2rem; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (max-width: 375px) {
+    max-width: 5rem;
+  }
+
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid #fff;
+    caret-color: #e46643;
+    width: auto;
   }
 `;
