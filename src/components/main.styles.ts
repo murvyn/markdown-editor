@@ -240,7 +240,9 @@ export const Flex = styled.div<{ mode?: "light" | "dark" }>`
   display: flex;
   flex-direction: row;
   overflow-x: hidden;
-  height: auto;
+  max-height: 100vh;
+  height: 100vh;
+  overflow-y: hidden;
   ${(props) =>
     props.mode === "dark" &&
     `
