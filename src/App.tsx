@@ -2,7 +2,6 @@ import React, { Suspense, useContext } from "react";
 import { Divider, Flex } from "./components/main.styles";
 import { ContentContext } from "./contexts/contentContext";
 import Loading from "./components/Loading";
-
 import SideBar from"./components/sidebar/SideBar"
 import NavBar from "./components/nav/NavBar"
 const Preview = React.lazy(() => import("./components/preview/Preview"));
